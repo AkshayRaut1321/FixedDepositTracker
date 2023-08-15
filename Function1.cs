@@ -11,8 +11,9 @@ namespace FixedDepositTracker
         public void Run([TimerTrigger("0 0 9 * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            BankScraper bankScraper = new BankScraper();
-            bankScraper.Scrape();
+
+            var fixedDepositManager = new FixedDepositManager();
+            var bankFDRateUrls = fixedDepositManager.Notify();
         }
     }
 }

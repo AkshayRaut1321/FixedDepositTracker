@@ -31,7 +31,7 @@ namespace FixedDepositTracker.Business
                     if (bankNameNode != null)
                     {
                         var bankName = bankNameNode.InnerText.Trim();
-                        smallFinanceBankNames.Add(bankName);
+                        publicSectorBankNames.Add(bankName);
                     }
                     else if (!string.IsNullOrWhiteSpace(cells[0].InnerText))
                     {
@@ -53,7 +53,7 @@ namespace FixedDepositTracker.Business
                     if (bankNameNode != null)
                     {
                         var bankName = bankNameNode.InnerText.Trim();
-                        smallFinanceBankNames.Add(bankName);
+                        privateSectorBankNames.Add(bankName);
                     }
                     else if (!string.IsNullOrWhiteSpace(cells[0].InnerText))
                     {
