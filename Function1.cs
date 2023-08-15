@@ -1,7 +1,7 @@
-using System;
+using FixedDepositTracker.Business;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace FixedDepositTracker
 {
@@ -11,6 +11,8 @@ namespace FixedDepositTracker
         public void Run([TimerTrigger("0 0 9 * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            BankScraper bankScraper = new BankScraper();
+            bankScraper.Scrape();
         }
     }
 }
